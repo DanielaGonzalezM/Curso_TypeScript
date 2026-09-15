@@ -1,40 +1,36 @@
-(() => {
-  // Tipos
-  const batman: string = "Bruce";
-  const superman: string = "Clark";
+// Funciones Básicas
+function sumar(a: number, b: number): number {
+  return a + b;
+}
 
-  const existe: boolean = false;
+const contar = (heroes: string[]): number => {
+  return heroes.length;
+};
+const superHeroes: string[] = ["Flash", "Arrow", "Superman", "Linterna Verde"];
+contar(superHeroes);
 
-  // Tuplas
-  const parejaHeroes: [string, string] = [batman, superman];
-  const villano: [string, number, boolean] = ["Lex Lutor", 5, true];
-
-  // Arreglos
-  const aliados: string[] = ["Mujer Maravilla", "Acuaman", "San", "Flash"];
-
-  //Enumeraciones
-  enum fuerza {
-    fuerzaFlash = 5,
-    fuerzaSuperman = 100,
-    fuerzaBatman = 1,
-    fuerzaAcuaman = 0,
+//Parametros por defecto
+const llamarBatman = (llamar: boolean = true): void => {
+  if (llamar) {
+    console.log("Batiseñal activada");
   }
-  const fuerzaFlash: fuerza = fuerza.fuerzaFlash;
-  const fuerzaSuperman: fuerza = fuerza.fuerzaSuperman;
-  const fuerzaBatman: fuerza = fuerza.fuerzaBatman;
-  const fuerzaAcuaman: fuerza = fuerza.fuerzaAcuaman;
+};
 
-  // Retorno de funciones
-  function activar_batiseñal(): string {
-    return "activada";
-  }
+llamarBatman();
 
-  function pedir_ayuda(): void {
-    console.log("Auxilio!!!");
-  }
+// Rest?
+const unirheroes = (...personas: string[]): string => {
+  return personas.join(", ");
+};
 
-  // Aserciones de Tipo
-  const poder: any = "100";
-  const largoDelPoder: number = (poder as string).length;
-  console.log(largoDelPoder);
-})();
+// Tipo funcion
+const noHaceNada = (
+  numero: number,
+  texto: string,
+  booleano: boolean,
+  arreglo: string[],
+): void => {};
+
+// Crear el tipo de funcion que acepte la funcion "noHaceNada"
+let noHaceNadaTampoco: (n: number, s: string, b: boolean, a: string[]) => void;
+noHaceNadaTampoco = noHaceNada;
