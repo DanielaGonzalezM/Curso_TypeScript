@@ -1,1 +1,4 @@
 01-bases/dist/
+node_modules/
+package-lock.json
+
